@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+# @author:  Janib Soomro
+# @e-mail:  soomrojb@gmail.com
+# @skype:   soomrojb
+# @dated:   12th May. 2018
+
 import scrapy
 from scrapy.utils.response import open_in_browser
 
@@ -19,7 +24,7 @@ class HycapSpider(scrapy.Spider):
             'query' : 'login',
             'remember' : 'true'
         }
-        yield scrapy.FormRequest(TargetURL, formdata=Params, callback=self.parse, method="POST")
+        yield scrapy.FormRequest(LoginURL, formdata=Params, callback=self.parse, method="POST")
 
     def parse(self, response):
         yield scrapy.FormRequest(BaseURL, callback=self.afterlogin, method="GET")
